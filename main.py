@@ -200,12 +200,16 @@ if __name__ == '__main__':
         aes_key = get_random_bytes(16)
         aes_cipher = AESCipher(aes_key)
         while True:
+            """
+            B key generating function
+            """
             def KeyB(A, b, p):
                 key_bb = (A ** b) % p
                 retB = hashlib.sha256(str(key_bb).encode()).hexdigest()
                 return retB
-
-
+            """
+            A key generating function
+            """
             def KeyA(B, a, p):
                 key_aa = (B ** a) % p
                 retA = hashlib.sha256(str(key_aa).encode()).hexdigest()
@@ -234,6 +238,9 @@ if __name__ == '__main__':
                 B = (g ** b) % p
                 alice = str(KeyA(B, a, p))
                 print(alice)
+                """
+                It is necessary to remove the variables for later computation of the key B (Bob) for decrytion
+                """
                 del p
                 del g
                 del A
@@ -292,12 +299,16 @@ if __name__ == '__main__':
         des_key = token_bytes(8)
         des_cipher = DESCipher(des_key)
         while True:
+            """
+            B key generating function
+            """
             def KeyB(A, b, p):
                 key_bb = (A ** b) % p
                 retB = hashlib.sha256(str(key_bb).encode()).hexdigest()
                 return retB
-
-
+            """
+            A key generating function
+            """
             def KeyA(B, a, p):
                 key_aa = (B ** a) % p
                 retA = hashlib.sha256(str(key_aa).encode()).hexdigest()
@@ -326,7 +337,9 @@ if __name__ == '__main__':
                 B = (g ** b) % p
                 alice = str(KeyA(B, a, p))
                 print(alice)
-
+                """
+                It is necessary to remove the variables for later computation of the key B (Bob) for decrytion
+                """
                 del p
                 del g
                 del A
@@ -398,12 +411,16 @@ if __name__ == '__main__':
         des3_cipher = DES3Cipher(des3_key)
 
         while True:
+            """
+            B key generating function
+            """
             def KeyB(A, b, p):
                 key_bb = (A ** b) % p
                 retB = hashlib.sha256(str(key_bb).encode()).hexdigest()
                 return retB
-
-
+            """
+            A key generating function
+            """
             def KeyA(B, a, p):
                 key_aa = (B ** a) % p
                 retA = hashlib.sha256(str(key_aa).encode()).hexdigest()
@@ -432,7 +449,9 @@ if __name__ == '__main__':
                 B = (g ** b) % p
                 alice = str(KeyA(B, a, p))
                 print(alice)
-
+                """
+                It is necessary to remove the variables for later computation of the key B (Bob) for decrytion
+                """
                 del p
                 del g
                 del A
