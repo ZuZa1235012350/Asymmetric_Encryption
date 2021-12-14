@@ -84,8 +84,7 @@ if __name__ == '__main__':
                     signature = cipher.sign(config.Config.CLIENT_PRIVATE_KEY, encrypt_text)
                     f.seek(0)
                     f.write(encrypt_text.decode()+ "\n"+ signature.decode())
-                    # f.truncate()
-                    # f.write("ALA MA KOTA")
+
         if choice == '2':
             for file in glob.glob("test/*.txt"):
                 with open(file, "r+") as f:
